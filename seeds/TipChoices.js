@@ -1,4 +1,4 @@
-const { TipChoices } = require('../models/TipChoices');
+const { TipChoices } = require('../models');
 
 const tipChoiceAmts = [
     {

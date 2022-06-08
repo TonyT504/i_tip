@@ -1,1 +1,0 @@
-const { Receipts } = require('../models/Receipts');

@@ -11,6 +11,15 @@ Receipts.init(
         primaryKey: true,
         autoIncrement: true,
        },
+
+       user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'User',
+            key: 'id',
+        },
+       },
        
        rest_name: {
            type: DataTypes.STRING,
@@ -24,6 +33,7 @@ Receipts.init(
 
        tip_choice_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
             model: 'TipChoices',
             key: 'id',
