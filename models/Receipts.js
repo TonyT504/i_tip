@@ -33,7 +33,7 @@ Receipts.init(
 
        tip_choice_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
             model: 'TipChoices',
             key: 'id',
