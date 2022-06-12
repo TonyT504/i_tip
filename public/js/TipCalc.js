@@ -1,5 +1,4 @@
-const res = require('express/lib/response');
-const { User } = require('../../models/User');
+const User = require('../../models/User');
 
 const newReceiptFormHandler = () => {
     const restName = document.querySelector('#restName').value.trim();
@@ -32,7 +31,7 @@ const newReceiptFormHandler = () => {
 
     const userId = User.getCurrentUserId();
 
-   return fetch('/api/receipts', {
+   fetch('/api/receipts', {
         method: 'POST',
         body: ({userId, restName, ogAmtParsed, tipChoiceId, tipAmt, newAmt}),
         headers: { 'Content-Type': 'application/json' },
@@ -44,6 +43,6 @@ const newReceiptFormHandler = () => {
     
 }
 
-const newReceiptSubmitBtn = document.querySelector('#newReceiptButton');
+const newReceiptSubmitBtn = document.querySelector('.newReceiptBtn');
 
-newReceiptSubmitBtn.addEventListener('submit', newReceiptFormHandler);
+newReceiptSubmitBtn.addEventListener('click', newReceiptFormHandler);
