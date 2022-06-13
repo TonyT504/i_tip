@@ -1,5 +1,5 @@
 :root {
-  --primary: #3d5852;
+  --primary: #3b719f;
   --secondary: #86938f;
   --tertiary: #5e877f;
   --quatrinary: #6c6b67;
@@ -66,9 +66,9 @@ nav a:hover {
   background-color: var(--dark);
 }
 
-.gallery {
+.bodyContainer {
   flex: 4;
-  background-color: #fff;
+  background-color:lightsteelblue;
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
@@ -161,4 +161,14 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+.newReceiptForm {
+  color: var(--primary);
+}
+
+.newReceiptBtn {
+  width: 200px;
+  color: white;
+  background-color: #3b719f;
 }

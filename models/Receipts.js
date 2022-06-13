@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
 
 class Receipts extends Model {}
 
@@ -11,6 +11,15 @@ Receipts.init(
         primaryKey: true,
         autoIncrement: true,
        },
+
+       user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'User',
+            key: 'id',
+        },
+       },
        
        rest_name: {
            type: DataTypes.STRING,
@@ -18,25 +27,26 @@ Receipts.init(
        },
 
        og_amt: {
-           type: DataTypes.INTEGER,
+           type: DataTypes.REAL,
            allowNull: false
        },
 
        tip_choice_id: {
         type: DataTypes.INTEGER,
+        allowNull: true,
         references: {
-            model: 'TipChoice',
+            model: 'TipChoices',
             key: 'id',
         },
        },
 
        tip_amt: {
-           type: DataTypes.INTEGER,
+           type: DataTypes.REAL,
            allowNull: false
        },
 
        new_amt: {
-           type: DataTypes.INTEGER,
+           type: DataTypes.REAL,
            allowNull: false
        }
     },
@@ -45,7 +55,7 @@ Receipts.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'Receipts',
     }
 )
 
