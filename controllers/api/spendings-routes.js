@@ -17,11 +17,10 @@ router.post('/', (req,res) => {
         og_amt: req.body.og_amt,
         tip_choice_id: req.body.tip_choice_id,
         tip_amt: req.body.tip_amt,
-        new_amt: req.body.new_amt,
-        // user_id: req.session.user_id
+        new_amt: req.body.new_amt
     })
     .then(response => res.status(200).json(response))
-    .catch(err => res.json(err))
+    .catch(err => res.status(400).json(err))
 });
 
 module.exports = router;

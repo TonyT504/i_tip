@@ -1,5 +1,3 @@
-// const User = require('../../models');
-
 const newReceiptFormHandler = () => {
     const restName = document.querySelector('#restName').value.trim();
     const ogAmt = document.querySelector('#ogAmt').value.trim();
@@ -28,19 +26,22 @@ const newReceiptFormHandler = () => {
 
     const newAmt = (parseFloat(ogAmt) + parseFloat(tipAmt)).toFixed(2);
 
-    // const userId = User.getCurrentUserId();
+    const ogAmtParsed = parseFloat(ogAmt);
+    const tipAmtParsed = parseFloat(tipAmt);
+    const newAmtParsed = parseFloat(newAmt);
+
 
     console.log({
         restName,
-        ogAmt,
+        ogAmtParsed,
         tipChoiceId,
-        tipAmt,
-        newAmt
+        tipAmtParsed,
+        newAmtParsed
     });
 
    fetch('/api/receipts', {
         method: 'POST',
-        body: ({restName, ogAmt, tipChoiceId, tipAmt, newAmt}),
+        body: ({restName, ogAmtParsed, tipChoiceId, tipAmtParsed, newAmtParsed}),
         headers: { 'Content-Type': 'application/json' },
       }).then(response => console.log(response)).catch(err => {
           console.log(err);

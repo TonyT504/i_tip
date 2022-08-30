@@ -12,14 +12,14 @@ Receipts.init(
         autoIncrement: true,
        },
 
-    //    user_id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: true,
-    //     references: {
-    //         model: 'User',
-    //         key: 'id',
-    //     },
-    //    },
+       user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'User',
+            key: 'id',
+        },
+       },
        
        rest_name: {
            type: DataTypes.STRING,
