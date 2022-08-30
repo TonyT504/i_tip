@@ -56,11 +56,15 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id;
 
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
+        console.log(req.session.user_id);
     });
+
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
